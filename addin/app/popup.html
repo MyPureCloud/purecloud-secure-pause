@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- build:css styles/popup-vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css styles/main.css -->
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="styles/popup.css" rel="stylesheet">
+    <!-- endbuild -->
+    <link rel="stylesheet" href="styles/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body ng-app="app" ng-controller="popupCtrl">
+    
+    <ul class="nav nav-pills btn-xs">
+        
+          <img src="images/BannerTop.jpg"></img>
+        
+        
+    </ul> 
+    <hr class="menuDevider" />
+    <div class="btn-group-vertical" role="group" aria-label="...">
+        <button type="button" class="btn btn-default menuItem btn-xs" id="connectButton_PC" ng-click="togglePCConnectionIndicator()">
+            <span class="label" ng-class="isPCConnected ? 'label-success' : 'label-danger'" id="connectionIndicator_PC">SYS</span>
+            {{ btnLogin }}
+            <img class="loading" src="images/ajax-loader.gif" width="14" height="14" align="right" ng-show="pcConnecting" />
+        </button>
+        
+    </div>
+    <hr class="menuDevider" />
+    <div class="btn-group-vertical" role="group" aria-label="...">
+         <button type="button" class="btn btn-default menuItem btn-xs" id="connectButton_CIC" ng-click="toggleStartSecurePauseIndicator()">
+            <span class="label" ng-class="isSecurePause ? 'label-danger' : 'label-success'" id="connectionIndicator_CIC">REC</span>
+            {{ lblSecurePause }}
+     </div>
+    <!--<hr class="menuDevider" />
+    <div class="btn-group-vertical" role="group" aria-label="...">
+         <button type="button" class="btn btn-default menuItem btn-xs" id="sendToPowerBI" ng-click="deleteDatasets()">
+             <span class="label" ng-class="isPowerBIConnected ? 'label-success' : 'label-danger'" id="deleteDatasets">DELETE</span>
+             One Dataset
+         </button>
+     </div>-->
+    <hr class="menuDevider" />
+
+    <ul layout="row"  layout-align="end center">
+    </ul>
+
+    <!-- build:js scripts/popup-vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-chrome-storage/angular-chrome-storage.js"></script>
+    <script src="bower_components/log4javascript/log4javascript.js"></script>
+    <script src="bower_components/store-js/store.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/JSONPath/lib/jsonpath.js"></script>
+    <script src="bower_components/ng-jsonpath/dist/ng-jsonpath.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-utf8-base64/angular-utf8-base64.min.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- Main App -->
+    <script type="text/javascript" src="scripts/app.js"></script>
+
+    <script type="text/javascript" src="scripts/controllers/popupCtrl.js"></script>
+    <script type="text/javascript" src="scripts/providers/loggerProvider.js"></script>
+    <script type="text/javascript" src="scripts/services/pureCloudService.js"></script>
+    
+    
+    
+</body>
+
+</html>

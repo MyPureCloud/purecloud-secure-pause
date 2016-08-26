@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "PureCloud SecurePause",
+    "description": "PureCloud SecurePause"
+  },
+  "appDescription": {
+    "message": "Extension log to the PureCloud, and control interaction recording process.",
+    "description": "The description of the application"
+  }
+}

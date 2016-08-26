@@ -1,0 +1,34 @@
+<html ng-app="app" ng-csp>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Background Page (point background property here to enable using of angular in background.js)</title>
+</head>
+
+<body id="backgroundCtrl" ng-controller="backgroundCtrl">
+    <!-- build:js scripts/background-vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-chrome-storage/angular-chrome-storage.js"></script>
+    <script src="bower_components/log4javascript/log4javascript.js"></script>
+    <script src="bower_components/store-js/store.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/JSONPath/lib/jsonpath.js"></script>
+    <script src="bower_components/ng-jsonpath/dist/ng-jsonpath.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-utf8-base64/angular-utf8-base64.min.js"></script>
+
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <script src="bower_components/moment/moment.js"></script>
+  <!--  <script src='http://code.jquery.com/jquery-1.11.2.min.js'></script> -->
+    <script src="/scripts/chromereload.js"></script>
+    <script src="/scripts/background.js"></script>
+    <script src="/scripts/app.js"></script>
+    <script src="/scripts/controllers/backgroundCtrl.js"></script>
+    <script src="scripts/services/pureCloudService.js"></script>
+      
+</body>
+
+</html>
