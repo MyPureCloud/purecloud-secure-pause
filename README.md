@@ -18,7 +18,7 @@ After install, go to the setting page and enter your environment and ClientID (g
 * Environment: either mypurecloud.com (US & Canada), mypurecloud.ie (EMEA), mypurecloud.jp (Japan), mypurecloud.com.au (Australia) or ininsca.com (development - internal to ININ only)
 * Client Id: Your oAuth client id from the oAuth page under Admin/Integrations in your PureCloud org
 
-![Clipboard04.jpg](https://bitbucket.org/repo/6pxRex/images/2283939741-Clipboard04.jpg)
+![Screen3.png](https://bitbucket.org/repo/rLgzEa/images/1309031361-Screen3.png)
 
 
 * Open the dashboard and voilà!
