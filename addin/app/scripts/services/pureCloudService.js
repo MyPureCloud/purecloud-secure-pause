@@ -3,7 +3,7 @@
 
 angular.module('pureCloudService', ['ab-base64', 'chromeStorage'])
 	.service('pureCloudService', function ($http, $log, $httpParamSerializerJQLike, $q, base64, chromeStorage) {
-        var _BgController;
+		var _BgController;
 
 		var _accessToken;
 		var _environment;
@@ -13,6 +13,7 @@ angular.module('pureCloudService', ['ab-base64', 'chromeStorage'])
 		var _userID;
 		var _webSocket;
 		var _userName;
+		var _callbackURI;
 
 		var _CallID;
 		var _bSecurePause;
@@ -61,6 +62,7 @@ angular.module('pureCloudService', ['ab-base64', 'chromeStorage'])
 				if (pcOptions) {
 					_clientId = pcOptions.pcClientId;
 					_environment = pcOptions.pcEnv;
+					_callbackURI = pcOptions.pcCalbackURI;
 				} else {
 					console.log('Empty pcOptions ! Go to the options page first.');
 					_BgController.ShowMessage('Please first input valid settings into the option panel.\nWant to go there now?');
@@ -100,11 +102,13 @@ angular.module('pureCloudService', ['ab-base64', 'chromeStorage'])
 			var deferred = $q.defer();
 			_bSecurePause = false;
 			this.GetOptions().then(function () {
-				
+
 				_host = 'api.' + _environment;
 				console.log('Start OAuth');
 
-				var redirectUri = "https://ipepiaoogopplecfilkpjkibljjcmhee.chromiumapp.org/index.html";
+				var redirectUri = "https://lhdmgfnlldpjhbpjeophdnidkpnbedgp.chromiumapp.org/index.html";
+				//var redirectUri = _callbackURI;
+				console.log('CallbackURI: ' + redirectUri);
 				var auth_url = "https://login." + _environment + "/oauth/authorize?client_id=" + _clientId + "&response_type=token&redirect_uri=" + encodeURIComponent(redirectUri);
 
 				chrome.identity.launchWebAuthFlow({ 'url': auth_url, 'interactive': true }, function (redirect_url) {
@@ -135,7 +139,7 @@ angular.module('pureCloudService', ['ab-base64', 'chromeStorage'])
 							// We've got userID, time to subscribe for notifications
 
 							subscribeForNotifications();
-							deferred.resolve({"OK": "OK"});
+							deferred.resolve({ "OK": "OK" });
 						}, function error() {
 							console.error('Error !!');
 							deferred.reject();
@@ -227,7 +231,7 @@ angular.module('pureCloudService', ['ab-base64', 'chromeStorage'])
 
 
 		this.StartSecurePause = function () {
-			
+
 			var deferred = $q.defer();
 			var requestBody = {
 				"recordingState": "paused"
@@ -242,7 +246,7 @@ angular.module('pureCloudService', ['ab-base64', 'chromeStorage'])
 				sendRestRequest('conversation.calls.pauseRecording', 'PATCH', apipath + '?' + $httpParamSerializerJQLike(queryParameters), requestBody).then(function success(response) {
 					console.log('Success. SecurePause enabled');
 					_bSecurePause = true;
-					deferred.resolve({"OK": "OK"});
+					deferred.resolve({ "OK": "OK" });
 				}, function error() {
 					console.error('Failed to pauseRecording !');
 					_bSecurePause = false;
@@ -259,7 +263,7 @@ angular.module('pureCloudService', ['ab-base64', 'chromeStorage'])
 
 		this.ResumeRecording = function () {
 			var deferred = $q.defer();
-			
+
 			var requestBody = {
 				"recordingState": "active"
 			};
@@ -271,7 +275,7 @@ angular.module('pureCloudService', ['ab-base64', 'chromeStorage'])
 			try {
 				sendRestRequest('conversation.calls.ResumeRecording', 'PATCH', apipath + '?' + $httpParamSerializerJQLike(queryParameters), requestBody).then(function success(response) {
 					_bSecurePause = false;
-					deferred.resolve({"OK": "OK"});
+					deferred.resolve({ "OK": "OK" });
 				}, function error() {
 					console.error('Failed to ResumeRecording !');
 					_bSecurePause = true;

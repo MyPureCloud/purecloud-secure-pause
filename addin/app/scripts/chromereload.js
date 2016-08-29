@@ -12,7 +12,6 @@ connection.onerror = function (error) {
   console.log('reload connection got error:', error);
 };
 
-
 connection.onmessage = function (e) {
   if (e.data) {
     var data = JSON.parse(e.data);

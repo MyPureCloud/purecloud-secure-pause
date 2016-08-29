@@ -16,9 +16,9 @@ angular.module('app', ['chromeStorage'])
             try {
                 var pcOptions = {}; 
                 pcOptions.pcEnv = $scope.pcEnv;                
-                pcOptions.pcTimer = $scope.pcTimer;
                 pcOptions.pcClientId = $scope.pcClientId;
-                pcOptions.pcClientSecret = $scope.pcClientSecret;            
+                pcOptions.pcCalbackURI = $scope.pcCalbackURI;
+
                 var storageItem = {};
                 storageItem.pcOptions = pcOptions;                 
                 chrome.storage.local.set(storageItem);
@@ -32,9 +32,8 @@ angular.module('app', ['chromeStorage'])
             try {                       
                 chromeStorage.get('pcOptions').then(function(pcOptions) {
                     $scope.pcEnv = pcOptions.pcEnv;
-                    $scope.pcTimer = pcOptions.pcTimer;
                     $scope.pcClientId = pcOptions.pcClientId;
-                    $scope.pcClientSecret = pcOptions.pcClientSecret;
+                    $scope.pcCalbackURI = pcOptions.pcCalbackURI;
                 });
             }  
             catch (err) {
