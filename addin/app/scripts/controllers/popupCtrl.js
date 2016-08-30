@@ -74,6 +74,7 @@ angular.module('app', ['chromeStorage', 'pureCloudService'])
                 } catch (Err) {
                     $scope.pcConnecting = false;
                     $log.error(Err);
+                    
                 }
             }
         };

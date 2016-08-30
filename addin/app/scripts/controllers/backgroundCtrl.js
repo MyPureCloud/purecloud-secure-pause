@@ -29,7 +29,7 @@ angular.module('app', ['pureCloudService'])
         $scope.ShowMessage = function (sMessage) {
             console.log(sMessage);
             var txt;
-            var r = confirm(sMessage);
+            var r = alert(sMessage);
             if (r == true) {
                 var x = screen.width / 2 - 800 / 2;
                 var y = screen.height / 2 - 400 / 2;

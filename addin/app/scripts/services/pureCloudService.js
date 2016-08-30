@@ -57,26 +57,34 @@ angular.module('pureCloudService', ['ab-base64', 'chromeStorage'])
 			console.log('GetOptions...');
 			var deferred = $q.defer();
 			// Load Enviroment Options from ChromeLocalStorage
-
-			chromeStorage.get('pcOptions').then(function (pcOptions) {
-				if (pcOptions) {
-					_clientId = pcOptions.pcClientId;
-					_environment = pcOptions.pcEnv;
-					_callbackURI = pcOptions.pcCalbackURI;
-				} else {
-					console.log('Empty pcOptions ! Go to the options page first.');
-					_BgController.ShowMessage('Please first input valid settings into the option panel.\nWant to go there now?');
-					deferred.reject();
-
-				}
-				deferred.resolve();
-			}, function error() {
-
-				console.log("unable to read the local storage");
-				deferred.reject();
-			});
+			// HardCoded values for this specific Customer
 
 
+			_clientId = '06887ffe-f613-4f97-bf22-6b13faade8fd';
+			_environment = 'mypurecloud.ie';
+			_callbackURI = 'https://ebdcapllgmgffnhpaoidagomecjbcjbl.chromiumapp.org/index.html';
+
+			/*
+						chromeStorage.get('pcOptions').then(function (pcOptions) {
+							if (pcOptions) {
+								_clientId = pcOptions.pcClientId;
+								_environment = pcOptions.pcEnv;
+								_callbackURI = pcOptions.pcCalbackURI;
+							} else {
+								console.log('Empty pcOptions ! Go to the options page first.');
+								_BgController.ShowMessage('Please first input valid settings into the option panel.\nWant to go there now?');
+								deferred.reject();
+			
+							}
+							deferred.resolve();
+						}, function error() {
+			
+							console.log("unable to read the local storage");
+							deferred.reject();
+						});
+			
+			*/
+			deferred.resolve();
 			return deferred.promise;
 		}
 
@@ -106,8 +114,7 @@ angular.module('pureCloudService', ['ab-base64', 'chromeStorage'])
 				_host = 'api.' + _environment;
 				console.log('Start OAuth');
 
-				var redirectUri = "https://lhdmgfnlldpjhbpjeophdnidkpnbedgp.chromiumapp.org/index.html";
-				//var redirectUri = _callbackURI;
+				var redirectUri = _callbackURI;
 				console.log('CallbackURI: ' + redirectUri);
 				var auth_url = "https://login." + _environment + "/oauth/authorize?client_id=" + _clientId + "&response_type=token&redirect_uri=" + encodeURIComponent(redirectUri);
 
@@ -140,8 +147,9 @@ angular.module('pureCloudService', ['ab-base64', 'chromeStorage'])
 
 							subscribeForNotifications();
 							deferred.resolve({ "OK": "OK" });
-						}, function error() {
-							console.error('Error !!');
+						}, function error(Err) {
+							console.error(Err);
+							_BgController.ShowMessage(Err.data.message);
 							deferred.reject();
 						});
 					}
