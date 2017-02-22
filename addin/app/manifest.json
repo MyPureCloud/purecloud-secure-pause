@@ -48,5 +48,8 @@
   },
   "web_accessible_resources": [
     "images/icon-48.png"
-  ]
+  ],
+  "externally_connectable": {
+  "matches": ["http://192.168.0.19:8080/script.html"]
+}
 }
