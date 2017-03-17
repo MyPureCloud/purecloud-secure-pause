@@ -15,13 +15,13 @@
 </head>
 
 <body ng-app="app" ng-controller="popupCtrl">
-    
+
     <ul class="nav nav-pills btn-xs">
-        
-          <img src="images/BannerTop.jpg"></img>
-        
-        
-    </ul> 
+
+        <img src="images/BannerTop.jpg"></img>
+
+
+    </ul>
     <hr class="menuDevider" />
     <div class="btn-group-vertical" role="group" aria-label="...">
         <button type="button" class="btn btn-default menuItem btn-xs" id="connectButton_PC" ng-click="togglePCConnectionIndicator()">
@@ -29,11 +29,11 @@
             {{ btnLogin }}
             <img class="loading" src="images/ajax-loader.gif" width="14" height="14" align="right" ng-show="pcConnecting" />
         </button>
-        
+
     </div>
     <hr class="menuDevider" />
     <div class="btn-group-vertical" role="group" aria-label="...">
-         <button type="button" class="btn btn-default menuItem btn-xs" id="connectButton_CIC" ng-click="toggleStartSecurePauseIndicator()">
+        <button type="button" class="btn btn-default menuItem btn-xs" id="connectButton_CIC" ng-click="toggleStartSecurePauseIndicator()">
             <span class="label" ng-class="isSecurePause ? 'label-danger' : 'label-success'" id="connectionIndicator_CIC">REC</span>
             {{ lblSecurePause }}
      </div>
@@ -43,10 +43,10 @@
              <span class="label" ng-class="isPowerBIConnected ? 'label-success' : 'label-danger'" id="deleteDatasets">DELETE</span>
              One Dataset
          </button>
-     </div>-->
+    </div>-->
     <hr class="menuDevider" />
 
-    <ul layout="row"  layout-align="end center">
+    <ul layout="row" layout-align="end center">
     </ul>
 
     <!-- build:js scripts/popup-vendor.js -->
@@ -69,9 +69,10 @@
     <script type="text/javascript" src="scripts/controllers/popupCtrl.js"></script>
     <script type="text/javascript" src="scripts/providers/loggerProvider.js"></script>
     <script type="text/javascript" src="scripts/services/pureCloudService.js"></script>
-    
-    
-    
+
+
+
+
 </body>
 
 </html>
