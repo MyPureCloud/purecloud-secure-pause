@@ -1,0 +1,21 @@
+{
+    "author": "ECC",
+    "title": "purecloud-secure-pause",
+    "categories": [
+        "Addin", "Chrome extension"
+    ],
+    "tags": [
+        "recording",
+        "addin",
+        "chrome",
+        "extension",
+        "control",
+        "call"
+    ],
+    "apis": [
+        "platform"
+    ],
+    "sdks": [
+        "javascript"
+    ]
+}
