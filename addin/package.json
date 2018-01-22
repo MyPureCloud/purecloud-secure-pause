@@ -63,6 +63,5 @@
     "bootstrap": "^3.3.6",
     "jquery": "^3.0.0",
     "jsonpath-object-transform": "^1.0.4"
-  
   }
 }
