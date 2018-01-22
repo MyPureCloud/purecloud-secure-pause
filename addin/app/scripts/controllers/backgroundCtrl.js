@@ -8,6 +8,7 @@
  * Controller of the app
 **/
 
+
 angular.module('app', ['pureCloudService'])
     .controller('backgroundCtrl', function ($scope, $log, $interval, pureCloudService, $window) {
 
