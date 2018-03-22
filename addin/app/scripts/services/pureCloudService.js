@@ -18,6 +18,9 @@ angular.module('pureCloudService', ['ab-base64', 'chromeStorage'])
     var _CallID;
     var _bSecurePause;
 
+    var _socketOpened = false;
+
+
 
     this.GetToken = function () {
       return _accessToken
@@ -71,8 +74,9 @@ angular.module('pureCloudService', ['ab-base64', 'chromeStorage'])
 
           _userName = sShortName;
           // We've got userID, time to subscribe for notifications
-
-          subscribeForNotifications();
+          if (!_socketOpened) {
+            subscribeForNotifications();
+          }
           //deferred.resolve({ "OK": "OK" });
         }, function error(Err) {
           console.error(Err);
@@ -230,6 +234,7 @@ angular.module('pureCloudService', ['ab-base64', 'chromeStorage'])
 
             sendRestRequest('channel.subscribeForNotifications', 'POST', apipath + '?' + $httpParamSerializerJQLike(queryParameters), requestBody).then(function success(response) {
               console.debug('Success. User subscribed for notifictions.');
+              _socketOpened = true;
 
             }, function error() {
               console.error('Error. User failed for subscribe for notifictions. !!');

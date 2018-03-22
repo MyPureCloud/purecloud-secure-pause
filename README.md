@@ -28,3 +28,4 @@ After install, go to the setting page and enter your environment and ClientID (g
 Important
 --------------
 This example assume that you're using https://apps.mypurecloud.ie. This value is hardcoded, not dynamic in this exmaple.
+Also ClientID is Hardcoded.
