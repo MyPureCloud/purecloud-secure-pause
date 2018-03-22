@@ -67,10 +67,14 @@ angular.module('app', ['pureCloudService'])
             if (_accessToken) return true;
             chrome.cookies.get({ url: myUrl, name: 'ININ-Auth-Api' }, function (cookie) {
                 // do something with the cookie
-                console.log(cookie.value);
-                _accessToken = cookie.value;
-                pureCloudService.GetStatus(_accessToken);
-                return true;
+                if (cookie) {
+                    console.log(cookie.value);
+                    _accessToken = cookie.value;
+                    pureCloudService.GetStatus(_accessToken);
+                    return true;
+                } else 
+                    console.log('ININ-Auth-Api Cookie not found.');
+              
             });
 
             return false;

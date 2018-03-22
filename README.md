@@ -24,3 +24,7 @@ After install, go to the setting page and enter your environment and ClientID (g
 
 
 * Open the dashboard and voilà!
+
+Important
+--------------
+This example assume that you're using https://apps.mypurecloud.ie. This value is hardcoded, not dynamic in this exmaple.
