@@ -1,6 +1,13 @@
 PureCloud SecurePause
 =============
 
+```
+
+Authentication to PureCloud doesn't work anymore due to Chrome limitations.
+
+```
+
+
 >Extension for the GoogleChrome that allow to log-in to PureCloud platform. After log-in, you are able to use Functionality of the SecurePause during a recorded call.
 
 ![Zrzut ekranu 2016-08-26 o 11.15.56.png](https://bitbucket.org/repo/rLgzEa/images/1330784784-Zrzut%20ekranu%202016-08-26%20o%2011.15.56.png)
